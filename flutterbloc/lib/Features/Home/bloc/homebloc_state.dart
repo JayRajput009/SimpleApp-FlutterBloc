@@ -9,11 +9,16 @@ final class HomeblocInitial extends HomeblocState {}
 
 class HomeLoadingState extends HomeblocState {}
 
-class HomeLoadedSuccessState extends HomeblocState {}
+class HomeLoadedSuccessState extends HomeblocState {
+  final List<ProductdataModel> products;
+
+  HomeLoadedSuccessState({required this.products});
+
+
+}
 
 class HomeErrorState extends HomeblocState {}
 
 class HomeNavigateToWishlistPageActionState extends HomeblocActionState {}
 
 class HomeNavigateToCartPageActionState extends HomeblocActionState {}
-
