@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterbloc/Features/Cart/UI/cartpage.dart';
+import 'package:flutterbloc/Features/Home/UI/product_tile_widegt.dart';
 import 'package:flutterbloc/Features/Home/bloc/homebloc_bloc.dart';
 import 'package:flutterbloc/Features/Wishlist/UI/wishlistpage.dart';
 
@@ -46,8 +47,9 @@ class _HomePageState extends State<HomePage> {
             );
 
           case HomeLoadedSuccessState:
+          final successState = state as HomeLoadedSuccessState;
             return Scaffold(
-              backgroundColor: Colors.teal.withOpacity(0.175),
+              backgroundColor: Colors.white,
               appBar: AppBar(
                 backgroundColor: Colors.teal,
                 title: Text(
@@ -74,6 +76,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+
+              body: ListView.builder(
+                  itemCount: successState.products.length,
+                  itemBuilder: (context, index) {
+                return ProductTileWideget(productdataModel:successState.products[index], homebloc: homebloc,);
+              }),
             );
 
           case HomeErrorState:
