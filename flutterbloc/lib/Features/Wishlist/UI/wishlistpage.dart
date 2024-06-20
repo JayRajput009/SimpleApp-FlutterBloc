@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class WishlistPage extends StatefulWidget {
@@ -13,6 +15,10 @@ class _WishlistPageState extends State<WishlistPage> {
     return Scaffold(
         appBar: AppBar(
             title: Text('Wishlist'),
+            
+        ),
+        body: Column(
+            
         ),
     );
   }
