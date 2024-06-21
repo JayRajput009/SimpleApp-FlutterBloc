@@ -35,6 +35,13 @@ class _HomePageState extends State<HomePage> {
         } else if (state is HomeNavigateToCartPageActionState) {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => CartPage()));
+        } else if (state is HomeProductWishlistButtonClickState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Item Wishlisted !!')));
+        }
+        else if (state is HomeProductCartButtonClickState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Item Carted!!')));
         }
       },
       builder: (context, state) {
@@ -47,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             );
 
           case HomeLoadedSuccessState:
-          final successState = state as HomeLoadedSuccessState;
+            final successState = state as HomeLoadedSuccessState;
             return Scaffold(
               backgroundColor: Colors.white,
               appBar: AppBar(
@@ -76,12 +83,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
               body: ListView.builder(
                   itemCount: successState.products.length,
                   itemBuilder: (context, index) {
-                return ProductTileWideget(productdataModel:successState.products[index], homebloc: homebloc,);
-              }),
+                    return ProductTileWideget(
+                      productdataModel: successState.products[index],
+                      homebloc: homebloc,
+                    );
+                  }),
             );
 
           case HomeErrorState:
@@ -93,7 +102,7 @@ class _HomePageState extends State<HomePage> {
 
           default:
             return Scaffold(
-                body: SizedBox(),
+              body: SizedBox(),
             );
         }
       },

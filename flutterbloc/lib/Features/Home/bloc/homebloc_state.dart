@@ -13,8 +13,6 @@ class HomeLoadedSuccessState extends HomeblocState {
   final List<ProductdataModel> products;
 
   HomeLoadedSuccessState({required this.products});
-
-
 }
 
 class HomeErrorState extends HomeblocState {}
@@ -22,3 +20,9 @@ class HomeErrorState extends HomeblocState {}
 class HomeNavigateToWishlistPageActionState extends HomeblocActionState {}
 
 class HomeNavigateToCartPageActionState extends HomeblocActionState {}
+
+class HomeProductWishlistButtonClickState extends HomeblocActionState {}
+
+class HomeProductCartButtonClickState extends HomeblocActionState {}
+
+

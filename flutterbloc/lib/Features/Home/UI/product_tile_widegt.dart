@@ -62,7 +62,10 @@ class ProductTileWideget extends StatelessWidget {
                 children: [
                   IconButton(
                       onPressed: () {
-                        homebloc.add(HomeProductWishlistButtonClickedEvent());
+                        homebloc.add(HomeProductWishlistButtonClickedEvent(
+                            clickProduct:productdataModel
+                        
+                        ));
                       },
                       icon: Icon(
                         Icons.favorite_border,
@@ -70,7 +73,9 @@ class ProductTileWideget extends StatelessWidget {
                       )),
                   IconButton(
                     onPressed: () {
-                        homebloc.add(HomeProductCartButtonClickedEvent());
+                        homebloc.add(HomeProductCartButtonClickedEvent(
+                            clickProduct: productdataModel
+                        ));
 
                     },
                     icon: Icon(
