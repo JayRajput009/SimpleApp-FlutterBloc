@@ -13,9 +13,9 @@ class HomeProductWishlistButtonClickedEvent extends HomeblocEvent {
 }
 
 class HomeProductCartButtonClickedEvent extends HomeblocEvent {
-  final ProductdataModel clickProduct;
+  final ProductdataModel newProduct;
 
-  HomeProductCartButtonClickedEvent({required this.clickProduct});
+  HomeProductCartButtonClickedEvent({required this.newProduct});
 
 }
 

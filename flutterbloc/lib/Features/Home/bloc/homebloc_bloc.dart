@@ -51,7 +51,7 @@ FutureOr<void> homeProductWishlistButtonClickedEvent(
 FutureOr<void> homeProductCartButtonClickedEvent(
     HomeProductCartButtonClickedEvent event, Emitter<HomeblocState> emit) {
   print('Cart product click');
-  cartItems.add(event.clickProduct);
+  cartItems.add(event.newProduct);
   emit(HomeProductCartButtonClickState());
 }
 

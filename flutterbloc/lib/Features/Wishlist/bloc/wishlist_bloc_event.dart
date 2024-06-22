@@ -1,4 +1,6 @@
 part of 'wishlist_bloc_bloc.dart';
 
 @immutable
-sealed class WishlistBlocEvent {}
+abstract class WishlistBlocEvent {}
+
+class InitialWishlistEvent extends WishlistBlocEvent {}

@@ -1,15 +1,12 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutterbloc/Features/Home/Models/Home_Product_model.dart';
-import 'package:flutterbloc/Features/Home/bloc/homebloc_bloc.dart';
+import 'package:flutterbloc/Features/Wishlist/bloc/wishlist_bloc_bloc.dart';
 
-class ProductTileWideget extends StatelessWidget {
-  final ProductdataModel productdataModel;
-  final HomeblocBloc homebloc;
+class WishListProductTileWideget extends StatelessWidget {
+ final ProductdataModel productdataModel;
+  final  WishlistBlocBloc wishlistbloc;
+  const WishListProductTileWideget({super.key, required this.productdataModel, required this.wishlistbloc});
 
-  ProductTileWideget(
-      {super.key, required this.productdataModel, required this.homebloc});
 
   @override
   Widget build(BuildContext context) {
@@ -60,29 +57,29 @@ class ProductTileWideget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        homebloc.add(HomeProductWishlistButtonClickedEvent(
-                            clickProduct:productdataModel
+                //   IconButton(
+                //       onPressed: () {
+                //         homebloc.add(HomeProductWishlistButtonClickedEvent(
+                //             clickProduct:productdataModel
                         
-                        ));
-                      },
-                      icon: Icon(
-                        Icons.favorite_border,
-                        color: Colors.black,
-                      )),
-                  IconButton(
-                    onPressed: () {
-                        homebloc.add(HomeProductCartButtonClickedEvent(
-                            newProduct: productdataModel
-                        ));
+                //         ));
+                //       },
+                //       icon: Icon(
+                //         Icons.favorite_border,
+                //         color: Colors.black,
+                //       )),
+                //   IconButton(
+                //     onPressed: () {
+                //         homebloc.add(HomeProductCartButtonClickedEvent(
+                //             clickProduct: productdataModel
+                //         ));
 
-                    },
-                    icon: Icon(
-                      Icons.shopping_bag_outlined,
-                      color: Colors.black,
-                    ),
-                  ),
+                //     },
+                //     icon: Icon(
+                //       Icons.shopping_bag_outlined,
+                //       color: Colors.black,
+                //     ),
+                //   ),
                 ],
               )
             ],
@@ -90,5 +87,6 @@ class ProductTileWideget extends StatelessWidget {
         ],
       ),
     );
+
   }
 }
