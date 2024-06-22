@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, type_literal_in_constant_pattern
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     return BlocConsumer<HomeblocBloc, HomeblocState>(
       bloc: homebloc,
       listenWhen: (previous, current) => current is HomeblocActionState,
-      buildWhen: (previous, current) => current is! HomeblocActionState,
+      buildWhen: (previous, current) => current is !HomeblocActionState,
       listener: (context, state) {
         if (state is HomeNavigateToWishlistPageActionState) {
           Navigator.push(context,
@@ -38,8 +38,7 @@ class _HomePageState extends State<HomePage> {
         } else if (state is HomeProductWishlistButtonClickState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('Item Wishlisted !!')));
-        }
-        else if (state is HomeProductCartButtonClickState) {
+        } else if (state is HomeProductCartButtonClickState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text('Item Carted!!')));
         }
