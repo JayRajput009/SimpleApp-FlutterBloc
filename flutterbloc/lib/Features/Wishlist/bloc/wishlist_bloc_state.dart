@@ -10,7 +10,7 @@ final class WishlistBlocInitial extends WishlistBlocState {}
 class InitialWishliststate extends WishlistBlocState {}
 
 class SuccessWishlistState extends WishlistBlocActionState {
-  final List<ProductdataModel> wishlistitem;
+  final List<ProductdataModel> wishlistItem;
 
-  SuccessWishlistState({required this.wishlistitem});
+  SuccessWishlistState({required this.wishlistItem});
 }

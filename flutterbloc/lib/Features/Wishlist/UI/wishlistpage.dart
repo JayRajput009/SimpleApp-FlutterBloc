@@ -20,38 +20,42 @@ class _WishlistPageState extends State<WishlistPage> {
   void initState() {
     wishlistbloc.add(InitialWishlistEvent());
     super.initState();
-
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Wishlist'),
+            title:Text('Wishlist Items',
+            style: TextStyle(
+                color: Colors.white
+            ),
+            ),
         ),
-        body: BlocConsumer<WishlistBlocBloc, WishlistBlocState>(
-          bloc: wishlistbloc,
-         
-          listener: (context, state) {},
-           listenWhen: (previous, current) => current is WishlistBlocActionState,
-          buildWhen: (previous, current) => current is! WishlistBlocActionState,
-          builder: (context, state) {
-            switch (state.runtimeType) {
-              case SuccessWishlistState:
-                final succesState = state as SuccessWishlistState;
-                return ListView.builder(
-                    itemCount: succesState.wishlistitem.length,
-                    itemBuilder: (context, index) {
-                      return WishListProductTileWideget(
-                        productdataModel: succesState.wishlistitem[index],
-                        wishlistbloc: wishlistbloc,
-                      );
-                    });
-              default:
-                return Container();
-            }
-          },
-        ));
+      body: BlocConsumer<WishlistBlocBloc, WishlistBlocState>(
+        listener: (context, state) {},
+        bloc: wishlistbloc,
+        listenWhen: (previous, current) => current is WishlistBlocActionState,
+        buildWhen: (previous, current) => current is! WishlistBlocActionState,
+        builder: (context, state) {
+          switch (state.runtimeType) {
+            case SuccessWishlistState:
+              final successState = state as SuccessWishlistState;
+              return ListView.builder(
+                  itemCount: successState.wishlistItem.length,
+                  itemBuilder: (context, index) {
+                    return WishListProductTileWideget(
+                      productdataModel: successState.wishlistItem[index],
+                      wishlistbloc: wishlistbloc,
+                    );
+                  });
+
+              
+            default:
+          }
+          return Container();
+        },
+      ),
+    );
   }
 }
